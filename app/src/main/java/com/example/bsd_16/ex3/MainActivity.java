@@ -9,8 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView3;
-    EditText editText;
+    private TextView textView3;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         textView3.setText(output_msg);
     }
 
-    private char grade(double score) {
+    protected char grade(double score) {
         if (score >= 90)
             return 'A';
         if (score >= 80)
