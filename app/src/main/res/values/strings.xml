@@ -6,4 +6,5 @@
     <string name="top_title">Your Grade</string>
     <string name="lbl">Score</string>
     <string name="btn_text">Calculate grade</string>
+    <string name="err_msg">Enter a decimal number between 0 and 100.</string>
 </resources>

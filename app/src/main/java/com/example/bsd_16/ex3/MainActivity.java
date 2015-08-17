@@ -43,14 +43,20 @@ public class MainActivity extends AppCompatActivity {
     public void clicked(View v) {
         textView3 = (TextView) findViewById(R.id.textView3);
         editText = (EditText) findViewById(R.id.editText);
-        String output_msg = "";
+        String output_msg;
 
-        double score = Double.valueOf(editText.getText().toString());
-        if (score <= 100) {
+        try {
+            double score = Double.valueOf(editText.getText().toString());
+            // If score is greater than 100, the following statement is executed,
+            // and then jump to catch (InputTooLargeException e).
+            if (score > 100) {
+                throw new InputTooLargeException();
+            }
+
             char grade = grade(score);
-            output_msg += "Your grade is " + grade;
-        } else {
-            output_msg += "Max score is 100.";
+            output_msg = "Your grade is " + grade;
+        } catch (NumberFormatException | InputTooLargeException e) {
+            output_msg = getString(R.string.err_msg);
         }
 
         textView3.setText(output_msg);
