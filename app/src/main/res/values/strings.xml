@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ex3</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="top_title">Your Grade</string>
+    <string name="lbl">Score</string>
+    <string name="btn_text">Calculate grade</string>
+</resources>
