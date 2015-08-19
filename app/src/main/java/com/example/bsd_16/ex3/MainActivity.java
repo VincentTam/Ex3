@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView3;
     private EditText editText;
 
+    static final String KEY_FOR_SAVED_OUTPUT = "savedOutput";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Get the user's current text output
+        final TextView textView = (TextView) findViewById(R.id.textView3);
+        CharSequence textOutput = textView.getText();
+        // Save the user's current text output
+        savedInstanceState.putCharSequence(KEY_FOR_SAVED_OUTPUT, textOutput);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore saved text from saved instance
+        CharSequence textOutput = savedInstanceState.getCharSequence(KEY_FOR_SAVED_OUTPUT);
+        final TextView textView = (TextView) findViewById(R.id.textView3);
+        textView.setText(textOutput);
     }
 
     public void clicked(View v) {
